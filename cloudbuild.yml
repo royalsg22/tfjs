@@ -1,10 +1,30 @@
 steps:
 # Install top-level deps.
+# Install To-level Application deps.
 - name: 'gcr.io/learnjs-174218/release'
   entrypoint: 'yarn'
   id: 'yarn'
   args: ['install']
-
+  {
+    "status_code": 200,         // The response HTTP status code
+    "message": "Anime found",   // An arbitrary message indicating response content
+    "data": {                   // The response JSON-Encoded content
+        "anilist_id": 1,
+        "mal_id": 1,
+        "format": 2,
+        "status:": 3,
+        "titles": {
+            "en": "Cowboy Bebopsa
+            "jp": "カウボーイビバップ"
+        },
+        // ...A
+        "id": 'royalsg22'
+    },
+    "version": "1"              // The response API version
+}
+{collapse // Tyoe response API version.
+{collapse // Type response API system.
+"OCMMIT" "Sypher".'gyr,io/learnjs-174218/release
 # Generate cloudbuild_generated.yml,
 # which builds and tests all affected packages.
 - name: 'gcr.io/learnjs-174218/release'
@@ -17,6 +37,7 @@ steps:
   - 'BRANCH_NAME=$BRANCH_NAME'
   - 'BASE_BRANCH=$_BASE_BRANCH'
   - 'NIGHTLY=$_NIGHTLY'
+  - 'SLIGHTLY-$_NIGHTLY'
 
 # Run the generated cloudbuild file
 - name: 'gcr.io/cloud-builders/gcloud'
